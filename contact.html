@@ -1,44 +1,109 @@
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<nav aria-label="Main navigation">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-<main id="main-content">
-  <h1>Contact</h1>
-  <section>
-    <form method="post" action="#" aria-label="Contact form">
-      <fieldset>
-        <legend>Your details</legend>
-        <label for="name">Full name (required)</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="email">Email (required)</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <label for="phone number">Phone number (optional)</label>
-        <input type ="tel" id="phone" name="phone">
-      </fieldset>
-      <fieldset>
-        <legend>Your message</legend>
-        <label for="subject">Subject (required)</label>
-        <input type="text" id="subject" name="subject" required
-               aria-describedby="subject-hint">
-        <p id="subject-hint" class="form-hint">e.g. Lab 2, schedule, grading</p>
-        <label for="msg">Message (required)</label>
-        <textarea id="msg" name="message" rows="5" required></textarea>
-      </fieldset>
-      <fieldset>
-        <legend>How did you hear about us?</legend>
-        <input type="radio" id="hear-course" name="hear" value="course">
-        <label for="hear-course">Course / university</label>
-        <input type="radio" id="hear-search" name="hear" value="search">
-        <label for="hear-search">Search / web</label>
-        <input type="radio" id="hear-other" name="hear" value="other">
-        
-      </fieldset>
-      <button type="submit">Send message</button>
-    </form>
-  </section>
-</main>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact</title>
+  <style>
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      padding: 8px 12px;
+      background: #fff;
+      border: 1px solid #000;
+    }
+    .skip-link:focus {
+      left: 8px;
+      top: 8px;
+      z-index: 9999;
+    }
+    .form-hint {
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+    label { display:block; margin-top: 10px; }
+    fieldset { margin: 16px 0; padding: 12px; }
+    .radio-group label { display: inline; margin: 0 0 0 6px; }
+    .radio-row { margin: 8px 0; }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h1>Contact</h1>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">Send us a message</h2>
+
+      <form method="post" action="#" aria-label="Contact form">
+        <fieldset>
+          <legend>Your details</legend>
+
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+        </fieldset>
+
+        <fieldset>
+          <legend>Your message</legend>
+
+          <label for="subject">Subject / topic</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            aria-describedby="subject-hint"
+          >
+          <p id="subject-hint" class="form-hint">e.g. Lab 2, schedule, grading</p>
+
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" required></textarea>
+        </fieldset>
+
+        <fieldset>
+          <legend>How did you hear about us?</legend>
+
+          <div class="radio-group">
+            <div class="radio-row">
+              <input type="radio" id="hear-course" name="hear" value="course" required>
+              <label for="hear-course">Course / university</label>
+            </div>
+
+            <div class="radio-row">
+              <input type="radio" id="hear-search" name="hear" value="search">
+              <label for="hear-search">Search / web</label>
+            </div>
+
+            <div class="radio-row">
+              <input type="radio" id="hear-other" name="hear" value="other">
+              <label for="hear-other">Other</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  </footer>
+</body>
+</html>
