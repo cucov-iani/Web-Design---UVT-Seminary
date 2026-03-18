@@ -1,0 +1,79 @@
+1.Explain which CSS properties each paragraph (A, B, C, D) receives and where each property comes from: element selector, class selector, or id selector.
+
+2.Paragraph D matches p, .info, #warning, and #warning.info. All four define color — which value does the browser use and why? What about font-family: which rule wins and why?
+
+3.Create an external CSS file called style.css and add properties for an h1 title: choose a color, set a font-style, and add padding: 10px;. Then, in the body, create an h1 with the text title1 and check the result. After that, in the same HTML file, add an internal CSS rule for h1 inside the <style> tag in the <head> and change the color. Check the result and explain what happens.
+
+
+
+1.
+**Paragraph A (`<p>`)**
+Matches: p
+
+* color: gray → element selector
+* font-size: 1rem → element selector
+* font-family: Georgia, serif → element selector
+* line-height: 1.4 → element selector
+* padding: 4px 0 → element selector
+
+
+**Paragraph B (`<p class="info">`)**
+Matches: p, .info
+
+* color: steelblue → class selector
+* font-size: 1.25rem → class selector
+* font-family: Arial, sans-serif → class selector
+* line-height: 1.4 → element selector
+* padding: 8px 14px → class selector
+* background-color: #e8f4fd → class selector
+* border-left: 5px solid steelblue → class selector
+
+
+**Paragraph C (`<p id="warning">`)**
+Matches: p, #warning
+
+* color: darkred → id selector
+* font-size: 0.8rem → id selector
+* font-family: 'Courier New', monospace → id selector
+* line-height: 1.4 → element selector
+* padding: 10px → id selector
+* font-style: italic → id selector
+* text-transform: uppercase → id selector
+* letter-spacing: 0.15em → id selector
+* border: 2px dashed darkred → id selector
+* background-color: #fff0f0 → id selector
+
+
+**Paragraph D (`<p class="info" id="warning">`)**
+Matches: p, .info, #warning, #warning.info
+
+* color: darkorange → #warning.info
+* font-size: 1.1rem → #warning.info
+* font-family: 'Courier New', monospace → #warning
+* line-height: 1.4 → p
+* padding: 10px → #warning
+* background-color: #fff7e0 → #warning.info
+* border: 2px solid darkorange → #warning.info
+* font-style: normal → #warning.info
+* letter-spacing: 0.03em → #warning.info
+* text-transform: uppercase → #warning
+
+
+**2) Paragraph D**
+
+Color: darkorange → from #warning.info
+
+Font-family: 'Courier New', monospace → from #warning
+
+
+**3) h1 (external vs internal CSS)**
+
+* color → internal CSS
+* font-style → external CSS
+* padding → external CSS
+
+2.
+For Paragraph D, the color will be darkorange because the #warning.info selector has the highest specificity (it combines an ID and a class), so it overrides all other color rules. For the font-family, the value will be 'Courier New', monospace from #warning, because #warning.info does not define a font-family, and among the remaining rules, #warning has the highest specificity, so it wins.
+
+3.
+The internal CSS overrides the external CSS for the color, so the text becomes red. The other properties (font-style and padding) still come from the external file since they are not changed.
